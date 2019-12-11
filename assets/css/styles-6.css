@@ -26,7 +26,7 @@ h6 {
   font-weight: 700;
 }
 a {
-  color: #070a0b;
+  color: #094b5f;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -ms-transition: all 0.4s ease-in-out;
@@ -85,7 +85,12 @@ p {
 .sidebar-wrapper .profile {
   margin-bottom: 15px;
 }
-.sidebar-wrapper .contact-list .fab {
+.sidebar-wrapper .contact-list .fab  {
+  margin-right: 5px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+.sidebar-wrapper .contact-list .fa  {
   margin-right: 5px;
   font-size: 18px;
   vertical-align: middle;
@@ -96,6 +101,10 @@ p {
 .sidebar-wrapper .contact-list li:last-child {
   margin-bottom: 0;
 }
+.sidebar-wrapper .contact-list .email .fa {
+  font-size: 14px;
+}
+
 .sidebar-wrapper .contact-list .email .fab {
   font-size: 14px;
 }
@@ -168,6 +177,28 @@ p {
   margin-bottom: 20px;
 }
 .main-wrapper .section-title .fab {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+  display: inline-block;
+  color: #fff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background: #2e4049;
+  text-align: center;
+  padding-top: 8px;
+  font-size: 16px;
+  position: relative;
+  top: -2px;
+}
+
+.main-wrapper .section-title .fa {
   width: 30px;
   height: 30px;
   margin-right: 8px;
