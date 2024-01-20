@@ -3,12 +3,12 @@ import * as Plugin from "./quartz/plugins"
 
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Guilherme Ilunga",
+    pageTitle: "Gui's ML Website",
     enableSPA: true,
     enablePopovers: true,
     analytics: null,
     baseUrl: "gilunga.github.io",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", "templates", "Templates", ".obsidian"],
     defaultDateType: "created",
     theme: {
       typography: {
