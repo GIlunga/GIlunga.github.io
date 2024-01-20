@@ -1,4 +1,10 @@
-_site
-.sass-cache
-.jekyll-metadata
-Gemfile.lock
+node_modules
+public
+prof
+tsconfig.tsbuildinfo
+.obsidian
+.quartz-cache
+private/
+.replit
+replit.nix
+Templates/
