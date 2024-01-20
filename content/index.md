@@ -1,5 +1,5 @@
 ---
-title: Gui's Website
+title: Home
 ---
 
-Hello!
+Hello! [[Papers]]
