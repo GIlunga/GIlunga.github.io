@@ -14,7 +14,7 @@ export default ((opts?: Options) => {
       <footer class={`${displayClass ?? ""}`}>
         <hr />
         <p>
-          Created with <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a>, © {year}
+          Website by <a href="https://www.linkedin.com/in/gilunga/">Guilherme Ilunga</a>, created with <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a>, © {year}
         </p>
         
       </footer>
