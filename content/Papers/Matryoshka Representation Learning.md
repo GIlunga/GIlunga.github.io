@@ -5,26 +5,35 @@ tags:
   - year_2022
   - NeurIPS
   - wip
-publish: "false"
+publish: "true"
+aliases:
+  - matryoshka
 ---
+The paper introduces a new method for training embeddings which encodes information at different granularities. The first dimensions of the embedding can be used when needed to reduce computation cost. This flexible representation performs at least as well as directly learning a small embedding but allows multiple embedding sizes.
+
+- focused on classification
+- and retrieval
+- 
+
+
 >[!info]  
 > **Paper link**: https://arxiv.org/abs/2205.13147
 > **Code link**: https://github.com/RAIVNLab/MRL
 
-# Summary
-
-- Learned representations are used extensively and fixed capacity can be over or under
-- they design a method that allows you to be flexible while maintaining classification accuracy
-- tested on many modalities
-
+# Introduction
 
 # Deep dive
 ## What is goal of the paper?
+- Flexible representations
 - Why does it matter?
+	- faster inference
 - What is the significance/impact of the conclusion?
+	- Simple change to training
+	- 
 
 ## What is the approach?
 - Is the approach well-motivated given existing literature?
+- Code
 
 ## Results
 - Are they correct?
