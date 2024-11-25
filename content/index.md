@@ -12,6 +12,7 @@ As of January 2024, I am just starting to build this website and porting over my
 - If for some reason you made it here and are interested in photography instead of machine learning, then see my [portfolio](https://gilunga.myportfolio.com/)
 
 
+TODO: improve below using dataviews! For example, show the last 3 posts and papers. also create static dataviews with https://github.com/udus122/dataview-publisher that list all papers and posts in a central page.
 ## How to use this website \[WIP\]
 
 - Search
