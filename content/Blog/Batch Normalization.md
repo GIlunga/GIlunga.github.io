@@ -24,6 +24,7 @@ The post begins by describing the issues that BN solves, followed up by explaini
 
 ## Why was Batch Normalization needed
 
+- normalization in ML (really?)
 - ResNet
 - exploding/vanishing gradient
 
