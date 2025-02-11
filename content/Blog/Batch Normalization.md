@@ -1,10 +1,10 @@
 ---
-date: 
+date: 2024-11-26
 tags:
   - normalization
   - wip
   - post
-publish: "true"
+publish: "false"
 aliases:
   - BN
   - BatchNorm
@@ -14,6 +14,7 @@ TODO: make this more than just the original paper. cover why internal covariate 
 - https://arxiv.org/pdf/1805.11604
 - https://arxiv.org/pdf/2002.10444
 - https://papers.nips.cc/paper/2020/file/9b8619251a19057cff70779273e95aa6-Paper.pdf
+- on the weight dynamics of deep normalized networks
 
 
 This post describes [*Batch Normalization*](https://arxiv.org/abs/1502.03167) (BN) and its effect on deep neural networks (DNNs). BN was introduced in 2015 as way to improving the training of deep image models, which typically suffered from vanishing/exploding gradient issues. The **core idea is to standardize the inputs to each layer**, i.e., removing the mean and dividing by the standard deviation. This became extremely successful and BN become widely used.

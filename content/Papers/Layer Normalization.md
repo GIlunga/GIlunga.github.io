@@ -2,17 +2,17 @@
 date: 2024-01-27
 tags:
   - "#normalization"
-  - wip
   - "#paper"
+  - stub
 publish: "true"
 aliases:
   - layernorm
 Year: "2016"
 ---
 # Summary
-The [paper](https://arxiv.org/abs/1607.06450) introduces *Layer Normalization*, a method for normalization which standardizes each input  across all of its features, instead of standardizing each feature across all inputs in a batch (batch normalization, BN). Unlike BN, there is no intra-batch dependency, no need to keep track of means and variances, and no changes in inference (it works for online inference). This new method is also straightforward to apply to RNNs, unlike BN which needs different statistics per time step and layer.
+The [paper](https://arxiv.org/abs/1607.06450) introduces *Layer Normalization*, a method for normalization which standardizes each input across all of its features, instead of standardizing each feature across all inputs in a batch (batch normalization, BN). Unlike BN, there is no intra-batch dependency, no need to keep track of means and variances, and no changes in inference (it also works for online inference). This new method is straightforward to apply to RNNs, unlike BN which needs different statistics per time step and layer.
 
-# Background
+<!--- # Background
 ## What is the problem? Why does it matter?
 
 
@@ -68,3 +68,4 @@ Standardizes each input example across all of its features.
 ## Next steps
 - Where do we go from here?
 
+ -->
