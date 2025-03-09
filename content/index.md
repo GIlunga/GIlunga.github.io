@@ -15,7 +15,7 @@ As of January 2025, I am still working on building this website and porting over
 
 
 
-<!--
+<!---
  %%DATAVIEW_PUBLISHER: start
 ```dataview
 TABLE date as Created
