@@ -15,22 +15,22 @@ As of January 2025, I am still working on building this website and porting over
 
 
 
-<!---
+<!--
  %%DATAVIEW_PUBLISHER: start
 ```dataview
-TABLE date as Created, Year as Published
+TABLE date as Created
 FROM #paper or #post 
 WHERE publish = "true"
-SORT file.date DESC
+SORT date DESC
 LIMIT 10
 ```
 %%
 -->
 
-| File                                                                                                                                                                                   | Created           | Published |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | --------- |
-| [[Papers/Layer Normalization.md\|Layer Normalization]]                                                                                                                                 | January 27, 2024  | 2016      |
-| [[Papers/DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning.md\|DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning]] | February 11, 2025 | 2025      |
+| File                                                                                                                                                                                   | Created          |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| [[Papers/DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning.md\|DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning]] | March 09, 2025   |
+| [[Papers/Layer Normalization.md\|Layer Normalization]]                                                                                                                                 | January 27, 2024 |
 
 %% DATAVIEW_PUBLISHER: end %%
 
