@@ -2,10 +2,10 @@
 publish: "false"
 ---
 ```dataview
-LIST
-FROM 
+LIST WITHOUT ID link
+FROM ""
+FLATTEN file.outlinks AS link
+WHERE !link.file AND !contains(link, ".png") AND !contains(link, ".jpg") AND !contains(link, ".jpeg") AND !startswith(link.path, "Files/")
+GROUP BY link
+
 ```
-
-TODO: make dataview with non-working links, which are essentially TODOs (I should be able to link to them but can't!)
-
-Consider making this page public

@@ -1,3 +1,11 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+a.broken-link {
+    color: #5c5a5a !important;
+    cursor: not-allowed;
+    text-decoration: none;
+  }
+  
+  a.broken-link:hover {
+    text-decoration: none;
+  }

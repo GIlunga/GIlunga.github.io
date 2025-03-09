@@ -15,8 +15,8 @@ As of January 2025, I am still working on building this website and porting over
 
 
 
-
-<!--- DATAVIEW_PUBLISHER: start
+<!---
+ %%DATAVIEW_PUBLISHER: start
 ```dataview
 TABLE date as Created, Year as Published
 FROM #paper or #post 
@@ -24,11 +24,13 @@ WHERE publish = "true"
 SORT file.date DESC
 LIMIT 10
 ```
+%%
 -->
 
-| File                                                   | Created          | Published |
-| ------------------------------------------------------ | ---------------- | --------- |
-| [[Papers/Layer Normalization.md\|Layer Normalization]] | January 27, 2024 | 2016      |
+| File                                                                                                                                                                                   | Created           | Published |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | --------- |
+| [[Papers/Layer Normalization.md\|Layer Normalization]]                                                                                                                                 | January 27, 2024  | 2016      |
+| [[Papers/DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning.md\|DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning]] | February 11, 2025 | 2025      |
 
 %% DATAVIEW_PUBLISHER: end %%
 

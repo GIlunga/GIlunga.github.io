@@ -117,8 +117,23 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
                   // need to decodeURIComponent here as WHATWG URL percent-encodes everything
                   const full = decodeURIComponent(_stripSlashes(destCanonical, true)) as FullSlug
                   const simple = simplifySlug(full)
-                  outgoing.add(simple)
-                  node.properties["data-slug"] = full
+                  //outgoing.add(simple)
+
+                  // Changed to remove 404 linking
+                  // Check slug existence
+                  if (!ctx.allSlugs.includes(simple)) {
+                    // Remove href to prevent navigation
+                    delete node.properties.href
+                    // Add broken-link class
+                    classes.push("broken-link")
+                    node.properties.title = "Page does not exist yet!"
+                    // Add accessibility attributes
+                    node.properties["aria-disabled"] = "true"
+                    node.properties.tabindex = "-1"
+                  } else {
+                    outgoing.add(simple)
+                    node.properties["data-slug"] = full
+                  }
                 }
 
                 // rewrite link internals if prettylinks is on
