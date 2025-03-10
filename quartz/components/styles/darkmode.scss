@@ -45,4 +45,12 @@
   & > #nightIcon {
     opacity: 0;
   }
+
+  
 }
+
+:root[saved-theme="dark"] {
+  --broken-link-color: #B0B0B0;  // Matches Quartz's dark text
+  --broken-link-bg: #2C2C2C;     // Matches Quartz's dark background
+}
+

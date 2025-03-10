@@ -1,11 +1,18 @@
 @use "./base.scss";
 
+:root {
+  --broken-link-color: #6b6a6a; 
+  --broken-link-bg: #b4b3b340;
+
+}
+
+
 a.broken-link {
-    color: #5c5a5a !important;
-    cursor: not-allowed;
-    text-decoration: none;
-  }
+  color: var(--broken-link-color) !important;
+  background-color: var(--broken-link-bg);
+  opacity: 1;
   
-  a.broken-link:hover {
-    text-decoration: none;
-  }
+  // Keep existing styles
+  cursor: not-allowed;
+  text-decoration: none;
+}
