@@ -15,7 +15,7 @@ The [paper](https://arxiv.org/abs/2501.12948) introduces DeepSeek's first reason
 The key findings are: 
 1. **[[RL]] is all you need for reasoning**: Sophisticated reasoning - self-verification, reflection, and long [[CoT | CoTs]] - can emerge just by directly training a base [[LLM]] with RL, no CoT [[Supervised Fine-Tuning | SFT]] data needed!
 2. **You can distill reasoning to smaller models**: Reasoning patterns can be distilled into smaller models, boosting their performance on reasoning tasks. The DeepSeek team released several distilled models (from 1.5B to 70B) based on [[Qwen2.5]] and [[Llamma3]] ([GitHub](https://github.com/deepseek-ai/DeepSeek-R1?tab=readme-ov-file#deepseek-r1-distill-models)).
-3. **SFT + [[GRPO]] = SOTA reasoning**: DeepSeek-R1, trained with both SFT and GRPO, either beats or matches [[OpenAI-o1]] on reasoning tasks!
+3. **SFT + [[DeepSeekMath - Pushing the Limits of Mathematical Reasoning in Open Language Models#GRPO|GRPO]] = SOTA reasoning**: DeepSeek-R1, trained with both SFT and GRPO, either beats or matches [[OpenAI-o1]] on reasoning tasks!
 
 <figure style="text-align: center;">     <img src="Files/Images/DeepSeek-R1-results.png" alt="Image Description" width="1000">    <figcaption><b>Figure 1</b>: DeepSeek vs OpenAI-o1 performance on reasoning benchmarks</figcaption> </figure>
 
