@@ -29,7 +29,6 @@ LIMIT 10
 
 | File                                                                                                                                                                                   | Created          |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| [[DeepSeekMath - Pushing the Limits of Mathematical Reasoning in Open Language Models\|DeepSeekMath - Pushing the Limits of Mathematical Reasoning in Open Language Models]] | March 12, 2025   |
 | [[Papers/DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning.md\|DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning]] | March 09, 2025   |
 | [[Papers/Layer Normalization.md\|Layer Normalization]]                                                                                                                                 | January 27, 2024 |
 
