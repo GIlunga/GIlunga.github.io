@@ -15,11 +15,11 @@ As of January 2025, I am still working on building this website and porting over
 
 
 
-<!---
+<!--
  %%DATAVIEW_PUBLISHER: start
 ```dataview
 TABLE date as Created
-FROM #paper or #post 
+FROM #paper 
 WHERE publish = "true"
 SORT date DESC
 LIMIT 10
@@ -29,6 +29,7 @@ LIMIT 10
 
 | File                                                                                                                                                                                   | Created          |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| [[DeepSeekMath - Pushing the Limits of Mathematical Reasoning in Open Language Models\|DeepSeekMath - Pushing the Limits of Mathematical Reasoning in Open Language Models]] | March 12, 2025   |
 | [[Papers/DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning.md\|DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning]] | March 09, 2025   |
 | [[Papers/Layer Normalization.md\|Layer Normalization]]                                                                                                                                 | January 27, 2024 |
 
