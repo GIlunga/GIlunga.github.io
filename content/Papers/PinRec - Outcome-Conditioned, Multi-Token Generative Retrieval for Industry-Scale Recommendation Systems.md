@@ -10,6 +10,19 @@ aliases:
   - monolith
 Year: "2022"
 ---
+format: 
+- don't call the section summary 
+- key findings/contributions
+- Practical applications/industry relevance, maybe my own personal notes section
+- Connections to other papers, e.g., similar to x, builds on y, contradicts z
+- Implementation notes or code snippets
+- Visual elements, e.g., architecture diagrams
+
+for this paper:
+- generative retrieval is a hot-topic at the moment, with a lot of recent work but this one is at a very large scale and shows it consistently beats other methods
+- Somewhat similar to Pinnerformer but only represents items (not users) and requires ANN
+- Somewhat unclear on novelty of multi-token generation and outcome-conditioning: these are fairly normal things
+
 # Summary
 - Our experiments demonstrate that PinRec can successfully balance performance, diversity, and efficiency, delivering a significant positive impact to users using generative models. This paper marks a significant milestone in generative retrieval, as it presents, to our knowledge, the first rigorous study on implementing generative retrieval at the scale of Pinterest.
 - A critical prerequisite for effective optimization of a sequential recommendation system is an effective input and output representation for the heterogeneous set of items.
