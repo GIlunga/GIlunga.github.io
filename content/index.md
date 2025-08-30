@@ -6,7 +6,7 @@ updated: 2025-02-10
 ---
 Hello and welcome to my website! In case you made it here without knowing, I am Guilherme, a Machine Learning Applied Scientist at Amazon, and this website is my attempt at both a *"wikipedia"* for papers and a machine learning blog. 
 
-As of May 2025, I am still working on building this website and porting over my existing notes. You may find the below links helpful in the meantime:
+As of August 2025, I am still working on building this website and porting over my existing notes. You may find the below links helpful in the meantime:
 - If you want to know more about me, see the [[About]] page
 - If you want to reach out to me, then see my [LinkedIn](https://www.linkedin.com/in/gilunga/)
 - If you want to see the code for this website, then see my [Github](https://github.com/GIlunga) (and check out [quartz](https://github.com/jackyzha0/quartz)!)

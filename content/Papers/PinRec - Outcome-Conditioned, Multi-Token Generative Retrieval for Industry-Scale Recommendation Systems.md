@@ -1,43 +1,42 @@
 ---
-date: 2025-05-15
+date: 2025-08-30
 tags:
   - "#paper"
   - recsys
-  - stub
-  - institution/ByteDance
+  - gen_retrieval
+  - institution/Pinterest
 publish: "true"
 aliases:
-  - monolith
-Year: "2022"
+  - PinRec
+Year: "2025"
 ---
-format: 
-- don't call the section summary 
-- key findings/contributions
-- Practical applications/industry relevance, maybe my own personal notes section
-- Connections to other papers, e.g., similar to x, builds on y, contradicts z
-- Implementation notes or code snippets
-- Visual elements, e.g., architecture diagrams
 
-for this paper:
-- generative retrieval is a hot-topic at the moment, with a lot of recent work but this one is at a very large scale and shows it consistently beats other methods
-- Somewhat similar to Pinnerformer but only represents items (not users) and requires ANN
-- Somewhat unclear on novelty of multi-token generation and outcome-conditioning: these are fairly normal things
+<div style="text-align: center; margin: 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--lightgray);">
+  <p style="margin: 0.5rem 0; color: var(--darkgray); font-style: italic;">
+    Anirudhan Badrinath, Prabhat Agarwal, Laksh Bhasin, Jaewon Yang, Jiajing Xu, Charles Rosenberg
+  </p>
+  <p style="margin: 0.5rem 0; font-style: bold;">
+    Pinterest
+  </p>
+  
+  <div style="display: flex; justify-content: center; margin: 1rem 0; gap: 0.5rem;">
+    <a href="https://arxiv.org/abs/2504.10507" target="_blank" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.2s ease; border: 1px solid var(--secondary); background-color: var(--secondary); color: var(--light); box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      📄 Paper
+    </a>
+  </div>
+</div>
+The paper introduces **PinRec**, a [[gen_retrieval|generative retrieval]] system deployed at Pinterest for >500M active users. This is the first rigorous study of generative retrieval at this scale. The approach uses an in-house implementation of [[Language Models are Unsupervised Multitask Learners (GPT-2)|GPT-2]] that processes items as tokens. Each user's recent interaction history forms a sequence where individual item interactions are represented as single embeddings. This follows similar patterns to [[SASRec]], [[PinnerFormer]] (also from Pinterest), [Netflix's foundation model](https://netflixtechblog.com/foundation-model-for-personalized-recommendation-1a0bd8e02d39), and [Amazon's purchase prediction models](https://m.media-amazon.com/images/G/01/AdProductsWebsite/images/Inside_the_predictive_AI_model_powering_Amazon_DSP_Performance_and_Brand.pdf).
 
-# Summary
-- Our experiments demonstrate that PinRec can successfully balance performance, diversity, and efficiency, delivering a significant positive impact to users using generative models. This paper marks a significant milestone in generative retrieval, as it presents, to our knowledge, the first rigorous study on implementing generative retrieval at the scale of Pinterest.
-- A critical prerequisite for effective optimization of a sequential recommendation system is an effective input and output representation for the heterogeneous set of items.
-- Based on a set of features F (𝑡) for each item type 𝑡 ∈ {pin, search query}, we construct MLPs 𝑓𝑡 for each item type 𝑡 ∈ T to generate a real-valued embedding. For simplicity, the architecture of each input embedder consists of 2-3 fully connected layers with ReLU activation and layer norms.
-- That is, for any future timestep window of size Δ starting at some timestep 𝑡 ′ > 𝑡, all items that are engaged within that window are targets for our prediction task
-- 
+The system generates predictions using a small MLP output head conditioned on the Transformer's hidden state, producing embeddings representing the next item. Training uses a next-token prediction task with sampled softmax loss over actual targets, in-batch negatives, and random negatives. During inference, generated output representations serve as queries for [[Approximate Nearest Neighbours]] search to retrieve the most similar items.
+
+There are two notable components of PinRec:
+- **Outcome-conditioned generation:** rather than simply learning existing user behaviour patterns, the system conditions the output head on desired outcomes through learnable embeddings representing intended actions. This allows dynamic control over action budgets and enables steering users toward specific engagement types during inference. Note that outcome-conditioning in recommender systems isn't new but the extension to generative retrieval is.
+- **Windowed multi-token generation:** simple next-token prediction assumes a strict ordering which typically doesn't matter for social media platforms - predicting that a user will like post X after Y or Z matters for autoregressive loss but practically speaking it doesn't matter for the business. Instead, they change the system to predict multiple tokens simultaneously within future time windows. Again, multi-token generation is not new (see [[DeepSeek-V3]]) and this style of future action prediction was already present in their previous model ([[PinnerFormer]]), but the extension to generative retrieval at scale is new. 
+
+Offline evaluation shows PinRec significantly outperforms [[SASRec]], [[TIGER]], and [[PinnerFormer]]. Online A/B tests also show improvements - adjusting outcome budgets successfully shifts user behaviour toward desired actions, while delivering significant lifts in key metrics including fulfilled sessions (+0.28%), time spent (+0.55%), and grid clicks (+1.73%).
 
 
 
-====
-The [paper](https://arxiv.org/abs/2209.07663) ([Github](https://github.com/bytedance/monolith?tab=readme-ov-file)) introduces Monolith, ByteDance's recommendation system powering TikTok (and the [BytePlus Recommend product](https://www.byteplus.com/en/product/recommend)). The paper details the infrastructure and system design that allows for industrial-scale recommendations (millions of users).
 
-**Key Findings:**
-1. **Collision-less hash tables improve performance for sparse categorical features:** Industrial recommender systems handle a massive number of users and ranking items, making it difficult to store large embedding tables. Traditional low-collision hashing can be problematic because some users/items are much more popular than others, so grouping them in the same bucket can harm model performance. Collision-less hashing (specifically, [cuckoo hashing](https://en.wikipedia.org/wiki/Cuckoo_hashing)) can accommodate a larger number of unique IDs and improves AUC without overfitting
-2. **Models can be updated in chunks:** Using TensorFlow parameter servers, the model can be updated incrementally during training, removing the need for synchronised replacement of the entire distributed model. Parameter servers (model chunks) can be synced independently because each update tends to be small
-3. **Collision-less hash tables and fast online training address concept drift:** Online training with collision-less hash tables, updated frequently, improves performance and reduces the impact of concept drift over time
 
 
