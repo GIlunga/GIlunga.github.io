@@ -10,7 +10,7 @@ As of August 2025, I am still working on building this website and porting over 
 - If you want to know more about me, see the [[About]] page
 - If you want to reach out to me, then see my [LinkedIn](https://www.linkedin.com/in/gilunga/)
 - If you want to see the code for this website, then see my [Github](https://github.com/GIlunga) (and check out [quartz](https://github.com/jackyzha0/quartz)!)
-- If you want to see my work in progress collection of ML papers and notes, then see the papers section (or use the search function ). There is also a list of the most recent updated articles below
+- If you want to see my work in progress collection of ML papers and notes, then see the papers section. Alternatively, use the search function or the table with the most recent articles below.
 - If for some reason you made it here and are interested in photography instead of machine learning, then see my [portfolio](https://gilunga.myportfolio.com/)
 
 
