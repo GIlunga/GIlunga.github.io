@@ -20,7 +20,7 @@ As of August 2025, I am still working on building this website and porting over 
 ```dataview
 TABLE date as Created
 FROM #paper 
-WHERE publish = "true"
+WHERE publish = "true" and not stub
 SORT date DESC
 LIMIT 10
 ```
