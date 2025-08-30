@@ -65,6 +65,11 @@ function generatePaperMarkdown(metadata) {
   const { title, authors, year, arxivUrl } = metadata;
   const today = new Date().toISOString().split('T')[0];
   
+  // Limit authors to first 10, add "et al." if more
+  const displayAuthors = authors.length > 10 
+    ? authors.slice(0, 10).join(', ') + ', et al.'
+    : authors.join(', ');
+  
   return `---
 date: ${today}
 tags:
@@ -76,7 +81,7 @@ Year: "${year}"
 <div style="text-align: center; margin: 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--lightgray);">
   <b>
   <p style="margin: 0.5rem 0; color: var(--darkgray); font-style: italic;">
-    ${authors.join(', ')}
+    ${displayAuthors}
   </p>
   <p style="margin: 0.5rem 0;">
     

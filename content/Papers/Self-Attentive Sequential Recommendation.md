@@ -3,6 +3,7 @@ date: 2025-08-30
 tags:
   - paper
   - recsys
+  - stub
   - institution/UCSanDiego
 publish: "true"
 aliases:

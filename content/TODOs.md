@@ -11,6 +11,9 @@ GROUP BY link
 ```
 
 
+- Paper year visible on the page itself
+- add stubs for existing refs
+- add missing concepts
 - improve old paper formats
 - add github links
-- Authors should be searchable!! What about et.al. - maybe add them as properties?
+- Authors should be searchable!! What about et.al. - maybe add them as properties? Ideally they could be a part of the graph too, so you could just find people and get all of their papers
