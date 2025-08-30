@@ -1,15 +1,30 @@
 ---
 date: 2024-01-27
 tags:
-  - "#normalization"
   - "#paper"
-  - stub
+  - normalization
+  - institution/UniversityOfToronto
 publish: "true"
 aliases:
   - layernorm
 Year: "2016"
 ---
-# Summary
+<div style="text-align: center; margin: 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--lightgray);">
+   <b>
+  <p style="margin: 0.5rem 0; color: var(--darkgray); font-style: italic;">
+    Jimmy Lei Ba, Jamie Ryan Kiros, Geoffrey E. Hinton
+  </p>
+  <p style="margin: 0.5rem 0; font-style: bold;">
+    University of Toronto
+  </p>
+   </b>
+  <div style="display: flex; justify-content: center; margin: 1rem 0; gap: 0.5rem;">
+    <a href="https://arxiv.org/abs/1607.06450" target="_blank" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.2s ease; border: 1px solid var(--secondary); background-color: var(--secondary); color: var(--light); box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      📄 Paper
+    </a>
+  </div>
+</div>
+
 The [paper](https://arxiv.org/abs/1607.06450) introduces *Layer Normalization*, a method for normalization which standardizes each input across all of its features, instead of standardizing each feature across all inputs in a batch (batch normalization, BN). Unlike BN, there is no intra-batch dependency, no need to keep track of means and variances, and no changes in inference (it also works for online inference). This new method is straightforward to apply to RNNs, unlike BN which needs different statistics per time step and layer.
 
 <!--- # Background
