@@ -1,15 +1,32 @@
 ---
-date: 2025-05-15
+date: 2025-08-30
 tags:
   - "#paper"
   - recsys
-  - stub
   - institution/Pinterest
+  - stub
 publish: "true"
 aliases:
-  - monolith
+  - TransAct
 Year: "2025"
 ---
+<div style="text-align: center; margin: 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--lightgray);">
+   <b>
+  <p style="margin: 0.5rem 0; color: var(--darkgray); font-style: italic;">
+    Xue Xia, Saurabh Vishwas Joshi, Kousik Rajesh, Kangnan Li, Yangyi Lu, Nikil Pancha, Dhruvil Deven Badani, Jiajing Xu, Pong Eksombatchai
+  </p>
+  <p style="margin: 0.5rem 0; font-style: bold;">
+    Pinterest
+  </p>
+   </b>
+  <div style="display: flex; justify-content: center; margin: 1rem 0; gap: 0.5rem;">
+    <a href="https://arxiv.org/abs/2506.02267" target="_blank" style="display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.2s ease; border: 1px solid var(--secondary); background-color: var(--secondary); color: var(--light); box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      📄 Paper
+    </a>
+  </div>
+</div>
+
+<!--
 # Summary
 - However, industry-scale CTR models often rely on short user sequences, limiting their ability to capture long-term behavior
 - Additionally, these models typically lack an integrated action-prediction task within a point-wise ranking framework, reducing their predictive power. 
@@ -31,15 +48,8 @@ Year: "2025"
 - Note that a causal mask is applied to the transformer encoder.
 - The choice of loss function for the next action prediction is another important aspect. While cross-entropy is a popular choice for classification, we utilize sampled softmax loss because it offers greater flexibility in adjusting the ratio of positive to negative samples in Equation 5, leading to consistently better performance
 - 
+-->
 
 
-
-----
-The [paper](https://arxiv.org/abs/2209.07663) ([Github](https://github.com/bytedance/monolith?tab=readme-ov-file)) introduces Monolith, ByteDance's recommendation system powering TikTok (and the [BytePlus Recommend product](https://www.byteplus.com/en/product/recommend)). The paper details the infrastructure and system design that allows for industrial-scale recommendations (millions of users).
-
-**Key Findings:**
-1. **Collision-less hash tables improve performance for sparse categorical features:** Industrial recommender systems handle a massive number of users and ranking items, making it difficult to store large embedding tables. Traditional low-collision hashing can be problematic because some users/items are much more popular than others, so grouping them in the same bucket can harm model performance. Collision-less hashing (specifically, [cuckoo hashing](https://en.wikipedia.org/wiki/Cuckoo_hashing)) can accommodate a larger number of unique IDs and improves AUC without overfitting
-2. **Models can be updated in chunks:** Using TensorFlow parameter servers, the model can be updated incrementally during training, removing the need for synchronised replacement of the entire distributed model. Parameter servers (model chunks) can be synced independently because each update tends to be small
-3. **Collision-less hash tables and fast online training address concept drift:** Online training with collision-less hash tables, updated frequently, improves performance and reduces the impact of concept drift over time
 
 

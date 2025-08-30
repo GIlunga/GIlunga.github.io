@@ -9,3 +9,8 @@ WHERE !link.file AND !contains(link, ".png") AND !contains(link, ".jpg") AND !co
 GROUP BY link
 
 ```
+
+
+- improve old paper formats
+- add github links
+- Authors should be searchable!! What about et.al. - maybe add them as properties?
