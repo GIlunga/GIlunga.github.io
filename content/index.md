@@ -1,47 +1,10 @@
 ---
-date: 2024-01-20
+date: 2025-12-05
 title: Home
 publish: "true"
 updated: 2025-11-13
 ---
-Hello and welcome to my website! In case you made it here without knowing, I am Guilherme (Gui for short), a machine learning applied scientist at Bumble, and this website is my attempt at both a *"wikipedia"* for papers and a machine learning blog.
+Welcome, I'm Gui, a machine learning scientist/engineer at Bumble and this is my website!
+Here you will find human-generated paper summaries, research deep-dives, and maybe even personal project reports. You can find some of my recent posts on the side (or at the bottom if on mobile). Recently I have been interested in [[LLM|LLMs]], particularly post-training and [[RL]], and in [[recsys|recommender systems]], particularly [[gen_retrieval|generative retrieval]].
 
-I am still working on building this website and porting over my existing notes. You may find the below links helpful in the meantime:
-- If you want to know more about me, see the [[About]] page
-- If you want to reach out to me, then see my [LinkedIn](https://www.linkedin.com/in/gilunga/)
-- If you want to see the code for this website, then see my [Github](https://github.com/GIlunga) (and check out [quartz](https://github.com/jackyzha0/quartz)!)
-- If you want to see my work in progress collection of ML papers and notes, then see the papers section. Alternatively, use the search function or the table with the most recent articles below.
-- If for some reason you made it here and are interested in photography instead of machine learning, then see my [portfolio](https://gilunga.myportfolio.com/)
-
-
-## Recent Posts
-<!--
- %%DATAVIEW_PUBLISHER: start
-```dataview
-TABLE date as Created, Year
-FROM #paper and -#stub
-WHERE publish = "true"
-SORT date DESC
-LIMIT 10
-```
-%%
--->
-| File                                                                                                                                                                                                                             | Created          | Year |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---- |
-| [[Papers/PinRec - Outcome-Conditioned, Multi-Token Generative Retrieval for Industry-Scale Recommendation Systems.md\|PinRec - Outcome-Conditioned, Multi-Token Generative Retrieval for Industry-Scale Recommendation Systems]] | August 30, 2025  | 2025 |
-| [[Papers/Monolith - Real Time Recommendation System With Collisionless Embedding Table.md\|Monolith - Real Time Recommendation System With Collisionless Embedding Table]]                                                       | May 15, 2025     | 2022 |
-| [[Papers/DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning.md\|DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning]]                                           | March 09, 2025   | 2025 |
-| [[Papers/Layer Normalization.md\|Layer Normalization]]                                                                                                                                                                           | January 27, 2024 | 2016 |
-
-%% DATAVIEW_PUBLISHER: end %%
-
-
-<!---
-## \[WIP\] **How** to use this website 
-
-- Search
-- Graph
-- Tags
-- Wikilinks and popovers
-- Backlinks 
--->
+If you find any issue or just want to say hi, then reach out on [LinkedIn](https://www.linkedin.com/in/gilunga/). Or, if besides machine learning you are also interested in photography, then see my [portfolio](https://gilunga.myportfolio.com/).

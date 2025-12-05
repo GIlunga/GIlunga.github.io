@@ -12,14 +12,14 @@ import {
   joinSegments,
   pathToRoot,
 } from "../../util/path"
-import { defaultListPageLayout, sharedPageComponents } from "../../../quartz.layout"
+import { homePageLayout, sharedPageComponents } from "../../../quartz.layout"
 import { TagContent } from "../../components"
 import { write } from "./helpers"
 
 export const TagPage: QuartzEmitterPlugin<FullPageLayout> = (userOpts) => {
   const opts: FullPageLayout = {
     ...sharedPageComponents,
-    ...defaultListPageLayout,
+    ...homePageLayout,
     pageBody: TagContent(),
     ...userOpts,
   }

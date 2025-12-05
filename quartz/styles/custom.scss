@@ -1,4 +1,5 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
 :root {
   --broken-link-color: #6b6a6a; 
@@ -15,4 +16,28 @@ a.broken-link {
   // Keep existing styles
   cursor: not-allowed;
   text-decoration: none;
+}
+
+// Make sidebar sticky instead of fixed so entire page scrolls (no sidebar scrollbar)
+// Only apply on desktop - mobile already has position: initial
+.page > #quartz-body > .sidebar {
+  @media all and (min-width: calc(#{$fullPageWidth} + 1px)) {
+    position: sticky !important;
+    top: #{$topSpacing};
+    align-self: flex-start;
+  }
+}
+
+// Ensure recent notes stack vertically on mobile in the right sidebar
+// On mobile, the right sidebar uses flex-direction: row, so we need to override
+// to make recent notes take full width and stack
+@media all and (max-width: $fullPageWidth) {
+  .page > #quartz-body > .sidebar.right {
+    flex-direction: column !important;
+    
+    & > .recent-notes {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
 }

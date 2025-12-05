@@ -2,8 +2,14 @@ import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import style from "./styles/search.scss"
 // @ts-ignore
 import script from "./scripts/search.inline"
+import DarkmodeConstructor from "./Darkmode"
+// @ts-ignore
+import darkmodeScript from "./scripts/darkmode.inline"
+import darkmodeStyles from "./styles/darkmode.scss"
 
 export default (() => {
+  const Darkmode = DarkmodeConstructor()
+  
   function Search({ displayClass }: QuartzComponentProps) {
     return (
       <div class={`search ${displayClass ?? ""}`}>
@@ -25,6 +31,7 @@ export default (() => {
             </g>
           </svg>
         </div>
+        <Darkmode displayClass={displayClass} />
         <div id="search-container">
           <div id="search-space">
             <input
@@ -43,7 +50,8 @@ export default (() => {
   }
 
   Search.afterDOMLoaded = script
-  Search.css = style
+  Search.beforeDOMLoaded = darkmodeScript
+  Search.css = style + "\n" + darkmodeStyles
 
   return Search
 }) satisfies QuartzComponentConstructor

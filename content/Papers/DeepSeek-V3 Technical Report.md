@@ -1,11 +1,8 @@
 ---
 date: 2025-08-30
 tags:
-  - paper
   - LLM
-  - institution/DeepSeek
-  - stub
-publish: "true"
+publish: "false"
 aliases:
   - DeepSeek-V3
 Year: "2024"
