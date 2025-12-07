@@ -18,7 +18,7 @@ a.broken-link {
   text-decoration: none;
 }
 
-// Make sidebar sticky instead of fixed so entire page scrolls (no sidebar scrollbar)
+// Make sidebar sticky instead of fixed so entire page scrolls
 // Only apply on desktop - mobile already has position: initial
 .page > #quartz-body > .sidebar {
   @media all and (min-width: calc(#{$fullPageWidth} + 1px)) {

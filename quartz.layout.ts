@@ -17,13 +17,13 @@ const recentNotes = [
   //     f.slug!.startsWith("Blog/") && f.slug! !== "Blog/index" && !f.frontmatter?.noindex,
   //   linkToMore: "Blog/" as SimpleSlug,
   // }),
-  Component.RecentNotes({
-    title: "Recent Concepts",
-    limit: 3,
-    filter: (f) =>
-      f.slug!.startsWith("Concepts/") && f.slug! !== "Concepts/index" && !f.frontmatter?.noindex,
-    linkToMore: "Concepts/" as SimpleSlug,
-  }),
+  // Component.RecentNotes({
+  //   title: "Recent Concepts",
+  //   limit: 3,
+  //   filter: (f) =>
+  //     f.slug!.startsWith("Concepts/") && f.slug! !== "Concepts/index" && !f.frontmatter?.noindex,
+  //   linkToMore: "Concepts/" as SimpleSlug,
+  // }),
 ]
 
 // components shared across all pages

@@ -7,6 +7,7 @@ publish: "true"
 aliases:
   - PinRec
 Year: "2025"
+updated: 2025-12-07
 ---
 The [paper](https://arxiv.org/abs/2504.10507) introduces **PinRec**, a [[gen_retrieval|generative retrieval]] system deployed at Pinterest for >500M active users. As far as I know, this is the first published paper on generative retrieval at this scale! 
 
