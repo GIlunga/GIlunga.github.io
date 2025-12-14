@@ -4,7 +4,7 @@ import { SimpleSlug } from "./quartz/util/path"
 
 const recentNotes = [
   Component.RecentNotes({
-    title: "Recent Papers",
+    title: "Recent Paper Notes",
     limit: 3,
     filter: (f) =>
       f.slug!.startsWith("Papers/") && f.slug! !== "Papers/index" && !f.frontmatter?.noindex,

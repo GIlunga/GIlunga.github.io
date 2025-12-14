@@ -4,7 +4,6 @@ tags:
   - "#paper"
   - recsys
   - stub
-  - institution/ByteDance
 publish: "false"
 aliases:
   - Qwen-Image
