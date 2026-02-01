@@ -6,24 +6,35 @@ publish: "true"
 aliases:
   - monolith
 Year: "2022"
-updated: 2025-12-07
+updated: 2026-01-31
 ---
-The [paper](https://arxiv.org/abs/2209.07663) (published in 2022) introduces Monolith, ByteDance's recommendation system powering TikTok (and the [BytePlus Recommend product](https://www.byteplus.com/en/product/recommend)). Unfortunately, it doesn't cover any actual modelling, just infrastructure. Still, it offers some clarity on how TikTok is able to so quickly adapt to user actions and new events.
-
-The core setup is simple - just keep training the model online with streamed data, instead of re-training every day or every n hours. But of course that is easier said than done, especially at TikTok scale. So let's dive into it!
+In 2022, ByteDance released a [paper](https://arxiv.org/abs/2209.07663) detailing their Monolith real-time recommendation framework, which is the core system behind the [BytePlus Recommend product](https://www.byteplus.com/en/product/recommend) (and maybe even TikTok?). The core setup is simple - just keep training the model online with streamed data, instead of re-training every day or every few hours. But of course that is easier said than done, especially at large scale. So let's dive into it!
 
 ## Part 1 - Data
 
-First things first, how do they prep the data? Basically, they use log user actions and their features at the time using Kafka, join them using Flink, and then place them into a final Kafka queue of training examples. When changing their architecture, they rely on offline batch training. Basically the online data gets dumped into HDFS and then picked up by a training worker. Otherwise, the training worker directly picks it up (see part 2 for more on training).
-<figure style="text-align: center;">     <img src="Files/Images/Monolith-data.png" alt="Image Description" width="1000">    <figcaption><b>Figure 1</b>: data streaming engine (from the paper)</figcaption> </figure>
+Let's assume we have a fantastic model that learns to recommend videos to user based on their actions on past videos, e.g., time spent, likes, and shares. Our goal is to make the model learn from actions as fast as possible after the occur. For that, we need a good data pipeline.  
 
-Lag of user action data can be a problem, e.g., if it takes them a few days to buy a product after being shown an ad. To avoid keeping all features in memory for when the action comes, they use an on-disk key-value store. When the action log arrives they rely on on-disk if too much time as passed and so it was stored there.
-Finally they do negative sampling, to avoid having too many negatives. This is later corrected with a log odds correction to ensure the online model is unbiased.
+<figure style="text-align: center;">     <img src="Files/Images/RealtimeRecommendations/Monolith-data.png" alt="Image Description" width="1000">    <figcaption><b>Figure 1</b>: Data streaming engine</figcaption> </figure>
 
-![[Pasted image 20251209210054.png]]
+Monolith achieves this by logging user actions and their point-in-time features using [Kafka](https://kafka.apache.org/), joining them using [Flink](https://flink.apache.org/), and then place them into a final Kafka queue of training examples. Essentially, they build a streaming engine for data collection and processing. The training examples are then used for online training (see part 2) and also stored offline for future batch training (e.g., when re-training the model from scratch or changing it).
+
+One obvious problem with this approach is delayed user actions. For example, it may take users a few days to buy a product after being shown a video ad. So we need to log the ad view event, the purchase event, and then merge the two into a single training example (let's ignore the casual attribution path for now). 
+
+Figure 2 shows their solution to this problem. They simply keep an on-disk key-value store with an in-memory cache. When the action log arrives they pull the original features (user and video features) from the cache or key-value store if too much time has passed. 
+
+Finally, they do negative sampling and later apply a log odds correction to ensure the online model is unbiased.
+
+<figure style="text-align: center;">     <img src="Files/Images/RealtimeRecommendations/Monolith-joiner.png" alt="Image Description" width="1000">    <figcaption><b>Figure 2</b>:  Online Joiner</figcaption> </figure>
+
 
 ## Part 2 - Training
-![[Pasted image 20251209210237.png]]
+
+<figure style="text-align: center;">     <img src="Files/Images/RealtimeRecommendations/Monolith-training.png" alt="Image Description" width="1000">    <figcaption><b>Figure 3</b>:  Online Training Architecture</figcaption> </figure>
+
+Now that we have data examples being streamed real-time, we need to do **real-time online training and deployment**! Monolith's solution
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
 
 The model is hosted on parameter servers (each server with a different chunk of the model). There are two types of parameter servers, a training one and a serving one. (TensorFlow). When training completes, the servers are synced, so that the serving model is updated. This happens periodically.
 
@@ -37,6 +48,10 @@ ISSUE: I'm not sure I follow this argument...
 - for fault tolerance, they snapshot PS daily. In practice the delay results in only a small degradation
 - OPEN QUESTION: This seems very task dependent no? Surely not a fully generalizable result
 - 
+
+## Part 3 - Modelling
+
+- Cuckoo hashing
 
 ---
 

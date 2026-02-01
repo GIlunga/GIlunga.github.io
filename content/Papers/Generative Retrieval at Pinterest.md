@@ -9,7 +9,7 @@ aliases:
 Year: "2025"
 updated: 2025-12-07
 ---
-The [paper](https://arxiv.org/abs/2504.10507) (published in 2025) introduces **PinRec**, a [[gen_retrieval|generative retrieval]] system deployed at Pinterest for >500M active users. As far as I know, this is the first published paper on generative retrieval at this scale! 
+In 2025 Pinterest released a [paper](https://arxiv.org/abs/2504.10507) introducing **PinRec**, a [[gen_retrieval|generative retrieval]] system that they deployed for >500M active users. As far as I know, this is the first published paper on generative retrieval at this scale!
 
 The core of their approach is fairly simple to follow. They use a GPT-2 model to process users' recent interaction history by tokenizing pin interactions into an item embedding. This is quite standard nowadays but if you are unfamiliar with it, then see [SASRec](https://arxiv.org/abs/1808.09781), [PinnerFormer](https://arxiv.org/abs/2205.04507) (also from Pinterest), [Netflix's foundation model](https://netflixtechblog.com/foundation-model-for-personalized-recommendation-1a0bd8e02d39), or [Amazon's purchase prediction models](https://m.media-amazon.com/images/G/01/AdProductsWebsite/images/Inside_the_predictive_AI_model_powering_Amazon_DSP_Performance_and_Brand.pdf) (I worked on that!). 
 
