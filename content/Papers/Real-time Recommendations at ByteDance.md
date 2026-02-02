@@ -12,13 +12,13 @@ In 2022, ByteDance released a [paper](https://arxiv.org/abs/2209.07663) detailin
 
 ## Part 1 - Data
 
-Let's assume we have a fantastic model that learns to recommend videos to user based on their actions on past videos, e.g., time spent, likes, and shares. Our goal is to make the model learn from actions as fast as possible after the occur. For that, we need a good data pipeline.  
+Let's assume we have a fantastic model that learns to recommend videos to user based on their actions on past videos, e.g., time spent, likes, and shares. Our goal is to make the model learn from actions as fast as possible after they occur. For that, we need a good data pipeline.
 
 <figure style="text-align: center;">     <img src="Files/Images/RealtimeRecommendations/Monolith-data.png" alt="Image Description" width="1000">    <figcaption><b>Figure 1</b>: Data streaming engine</figcaption> </figure>
 
-Monolith achieves this by logging user actions and their point-in-time features using [Kafka](https://kafka.apache.org/), joining them using [Flink](https://flink.apache.org/), and then place them into a final Kafka queue of training examples. Essentially, they build a streaming engine for data collection and processing. The training examples are then used for online training (see part 2) and also stored offline for future batch training (e.g., when re-training the model from scratch or changing it).
+Monolith achieves this by logging user actions and their point-in-time features using [Kafka](https://kafka.apache.org/), joining them using [Flink](https://flink.apache.org/), and then placing them into a final Kafka queue of training examples. Essentially, they build a streaming engine for data collection and processing. The training examples are then used for online training (see part 2) and also stored offline for future batch training (e.g., when re-training the model from scratch or changing it).
 
-One obvious problem with this approach is delayed user actions. For example, it may take users a few days to buy a product after being shown a video ad. So we need to log the ad view event, the purchase event, and then merge the two into a single training example (let's ignore the casual attribution path for now). 
+One obvious problem with this approach is delayed user actions. For example, it may take users a few days to buy a product after being shown a video ad. So we need to log the ad view event, the purchase event days later, and then merge the two into a single training example (let's ignore the casual attribution problem for now). 
 
 Figure 2 shows their solution to this problem. They simply keep an on-disk key-value store with an in-memory cache. When the action log arrives they pull the original features (user and video features) from the cache or key-value store if too much time has passed. 
 
@@ -26,17 +26,23 @@ Finally, they do negative sampling and later apply a log odds correction to ensu
 
 <figure style="text-align: center;">     <img src="Files/Images/RealtimeRecommendations/Monolith-joiner.png" alt="Image Description" width="1000">    <figcaption><b>Figure 2</b>:  Online Joiner</figcaption> </figure>
 
+We now have a streaming queue of training examples ready for online training!
 
 ## Part 2 - Training
+TODO: WORKER-PS DIAGRAM
 
-<figure style="text-align: center;">     <img src="Files/Images/RealtimeRecommendations/Monolith-training.png" alt="Image Description" width="1000">    <figcaption><b>Figure 3</b>:  Online Training Architecture</figcaption> </figure>
+Monolith follows TensorFlow's Worker-Parameter Server (PS) architecture, where parameter servers store and update model parameters and workers perform computations. The model is hosted in chunks across online serving PS and in training the PS are synced.
 
-Now that we have data examples being streamed real-time, we need to do **real-time online training and deployment**! Monolith's solution
+<figure style="text-align: center;">     <img src="Files/Images/RealtimeRecommendations/Monolith-training.png" alt="Image Description" width="1000">    <figcaption><b>Figure 3</b>:  Training Architecture</figcaption> </figure>
 
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Figure 3 describes the training architecture. Whenever we want to train the model, we host it in training PS and use training workers to load data, get parameters, run forward/backward passes, and sync back with the training PS. When training completes, the training and online PS are synced, so the serving model is updated. 
 
-
-The model is hosted on parameter servers (each server with a different chunk of the model). There are two types of parameter servers, a training one and a serving one. (TensorFlow). When training completes, the servers are synced, so that the serving model is updated. This happens periodically.
+- Idea:
+- Online training
+- Skipped the image saying feature IDs only - what about dense features
+- Then cover modelling decision of cuckoo hashing
+- and how sparse updates are more important than dense embeddings
+----
 
 Online serving must not stop. Models are usually several TBs in size so synced replacing doesn't work (think of memory reqs and bandwith!). So they do spars updates on the fly. Because
 - Sparse params dominate
