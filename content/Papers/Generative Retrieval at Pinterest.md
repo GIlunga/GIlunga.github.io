@@ -1,5 +1,5 @@
 ---
-date: 2025-08-30
+date: 2025-12-12
 tags:
   - recsys
   - gen_retrieval
@@ -7,7 +7,7 @@ publish: "true"
 aliases:
   - PinRec
 Year: "2025"
-updated: 2025-12-07
+updated: 2025-12-12
 ---
 In 2025 Pinterest released a [paper](https://arxiv.org/abs/2504.10507) introducing **PinRec**, a [[gen_retrieval|generative retrieval]] system that they deployed for >500M active users. As far as I know, this is the first published paper on generative retrieval at this scale!
 
