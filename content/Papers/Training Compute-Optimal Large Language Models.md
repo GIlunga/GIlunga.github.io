@@ -12,6 +12,7 @@ Read: false
 Contributions: Introduces Chinchilla. Shows with large scale experiments (400+ models) that LMs should be scaled linearly in terms of their size (parameters) and number of training tokens. They show that a "compute-optimal" model with less parameters than GPT-3 and Gopher can outperform them.
 aliases:
   - Chinchilla
+publish: "false"
 ---
 
 

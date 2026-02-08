@@ -150,21 +150,34 @@ a {
       gap: 2rem;
       top: 0;
       width: $sidePanelWidth;
+      max-width: $sidePanelWidth;
       margin-top: $topSpacing;
       box-sizing: border-box;
       padding: 0 4rem;
       position: fixed;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+
+      * {
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
       @media all and (max-width: $fullPageWidth) {
         position: initial;
         flex-direction: row;
         padding: 0;
         width: initial;
         margin-top: 2rem;
+        max-height: initial;
+        overflow-y: initial;
+        overflow-x: initial;
       }
     }
 
     & .sidebar.left {
-      left: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth);
+      left: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth - $sidebarSpacing);
       @media all and (max-width: $fullPageWidth) {
         gap: 0;
         align-items: center;
@@ -172,7 +185,7 @@ a {
     }
 
     & .sidebar.right {
-      right: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth);
+      right: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth - $sidebarSpacing);
       & > * {
         @media all and (max-width: $fullPageWidth) {
           flex: 1;
@@ -195,6 +208,9 @@ a {
     margin-left: auto;
     margin-right: auto;
     width: $pageWidth;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
     @media all and (max-width: $fullPageWidth) {
       width: initial;
       margin-left: 0;

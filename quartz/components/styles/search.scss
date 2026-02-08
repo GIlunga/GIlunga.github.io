@@ -4,6 +4,9 @@
   min-width: fit-content;
   max-width: 14rem;
   flex-grow: 0.3;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 
   & > #search-icon {
     background-color: var(--lightgray);
@@ -13,6 +16,7 @@
     align-items: center;
     cursor: pointer;
     white-space: nowrap;
+    flex: 1;
 
     & > div {
       flex-grow: 1;
@@ -35,6 +39,11 @@
         transition: stroke 0.5s ease;
       }
     }
+  }
+
+  & > .darkmode {
+    flex-shrink: 0;
+    margin: 0;
   }
 
   & > #search-container {

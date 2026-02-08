@@ -5,7 +5,7 @@ import BodyConstructor from "../../components/Body"
 import { pageResources, renderPage } from "../../components/renderPage"
 import { FullPageLayout } from "../../cfg"
 import { FilePath, pathToRoot } from "../../util/path"
-import { defaultContentPageLayout, sharedPageComponents } from "../../../quartz.layout"
+import { homePageLayout, sharedPageComponents } from "../../../quartz.layout"
 import { Content } from "../../components"
 import chalk from "chalk"
 import { write } from "./helpers"
@@ -13,7 +13,7 @@ import { write } from "./helpers"
 export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpts) => {
   const opts: FullPageLayout = {
     ...sharedPageComponents,
-    ...defaultContentPageLayout,
+    ...homePageLayout,
     pageBody: Content(),
     ...userOpts,
   }
@@ -49,7 +49,10 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
           allFiles,
         }
 
-        const content = renderPage(slug, componentData, opts, externalResources)
+        // Use homePageLayout for all pages
+        const pageLayout = opts
+
+        const content = renderPage(slug, componentData, pageLayout, externalResources)
         const fp = await write({
           ctx,
           content,
