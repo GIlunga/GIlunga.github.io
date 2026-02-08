@@ -5,6 +5,9 @@ import readingTime from "reading-time"
 export default (() => {
   function ContentMetadata({ cfg, fileData, displayClass }: QuartzComponentProps) {
     const text = fileData.text
+    if (fileData.slug === "index") {
+      return null
+    }
     if (text) {
       const segments: string[] = []
       const { text: timeTaken, words: _words } = readingTime(text)
