@@ -1,6 +1,6 @@
 ---
 title: "Generative Retrieval at Pinterest"
-description: "How to deploy a generative retrieval system for 500M+ users"
+description: "Deploying generative retrieval for 500M+ users"
 date: "2025-12-12"
 tags:
   - recsys

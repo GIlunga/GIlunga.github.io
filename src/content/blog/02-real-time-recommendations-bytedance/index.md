@@ -1,5 +1,5 @@
 ---
-title: "Real-time Recommendations at ByteDance with Monolith"
+title: "Real-time Recommendations at ByteDance"
 description: "Collision-free hash tables + online training is all you need?"
 date: "2026-02-08"
 tags:
