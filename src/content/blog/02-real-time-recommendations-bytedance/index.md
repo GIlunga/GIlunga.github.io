@@ -53,17 +53,16 @@ The second problem is the dataset can have too many negative events, making it h
 We now have a streaming queue of training examples ready for online training, so let's jump into it!
 
 ## Training
-
 <figure style="text-align: center;">
-  <img src="/images/02-real-time/Monolith-training.png" width="1000">
-  <figcaption><b>Figure 3</b>: Training Architecture</figcaption>
+  <img src="/images/02-real-time/Monolith-workerps.png" width="1000">
+  <figcaption><b>Figure 4</b>: Training Architecture</figcaption>
 </figure>
 
 Monolith follows TensorFlow's Worker-Parameter Server (PS) architecture, where parameter servers store and update model parameters while workers perform computations. The model is hosted in chunks across multiple PS, with different PS for online serving and training.
 
 <figure style="text-align: center;">
-  <img src="/images/02-real-time/Monolith-workerps.png" width="1000">
-  <figcaption><b>Figure 4</b>: Training Architecture</figcaption>
+  <img src="/images/02-real-time/Monolith-training.png" width="1000">
+  <figcaption><b>Figure 3</b>: Training Architecture</figcaption>
 </figure>
 
 Figure 4 describes the training system architecture. For online training, the flow is:
